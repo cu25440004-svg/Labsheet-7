@@ -359,3 +359,130 @@ Present
 */
 
 cout<<"\n--------------------------------------------\n";
+// ============================================================
+// 16. Count the Number of Words in a String using strlen() and spaces
+// ============================================================
+#include<iostream>
+#include<cstring>
+using namespace std;
+int main(){
+ char s[200]; int c=1;
+ cout<<"Enter string: ";
+ cin.ignore();
+ cin.getline(s,200);
+ for(int i=0;i<strlen(s);i++)
+  if(s[i]==' ' && s[i+1]!=' ' && s[i+1]!='\0') c++;
+ cout<<"Words="<<c;
+ return 0;
+}
+
+/*
+Output:
+Enter string: This is my book
+Words=4
+*/
+
+cout<<"\n--------------------------------------------\n";
+
+// ============================================================
+// 17. Remove All Vowels from a String using String Functions
+// ============================================================
+#include<iostream>
+#include<cstring>
+using namespace std;
+int main(){
+ char s[200],r[200]; int j=0;
+ cout<<"Enter string: ";
+ cin.getline(s,200);
+ for(int i=0;i<strlen(s);i++)
+  if(!strchr("aeiouAEIOU",s[i])) r[j++]=s[i];
+ r[j]='\0';
+ cout<<"Without vowels: "<<r;
+ return 0;
+}
+
+/*
+Output:
+Enter string: Education
+Without vowels: dctn
+*/
+
+cout<<"\n--------------------------------------------\n";
+
+// ============================================================
+// 18. Copy Only First 5 Characters using strncpy()
+// ============================================================
+#include<iostream>
+#include<cstring>
+using namespace std;
+int main(){
+ char s1[100],s2[100];
+ cout<<"Enter string: "; cin>>s1;
+ strncpy(s2,s1,5);
+ s2[5]='\0';
+ cout<<"Copied(5 chars): "<<s2;
+ return 0;
+}
+
+/*
+Output:
+Enter string: Computer
+Copied(5 chars): Compu
+*/
+
+cout<<"\n--------------------------------------------\n";
+
+// ============================================================
+// 19. Join Multiple Strings into One Sentence using strcat()
+// ============================================================
+#include<iostream>
+#include<cstring>
+using namespace std;
+int main(){
+ char s1[50],s2[50],s3[50],s[200]="";
+ cout<<"Enter 1st word: "; cin>>s1;
+ cout<<"Enter 2nd word: "; cin>>s2;
+ cout<<"Enter 3rd word: "; cin>>s3;
+ strcat(s,s1); strcat(s," ");
+ strcat(s,s2); strcat(s," ");
+ strcat(s,s3);
+ cout<<"Sentence: "<<s;
+ return 0;
+}
+
+/*
+Output:
+Enter 1st word: I
+Enter 2nd word: love
+Enter 3rd word: coding
+Sentence: I love coding
+*/
+
+cout<<"\n--------------------------------------------\n";
+
+// ============================================================
+// 20. Check Whether Two Strings are Anagrams using String Functions
+// ============================================================
+#include<iostream>
+#include<cstring>
+#include<algorithm>
+using namespace std;
+int main(){
+ char a[100],b[100];
+ cout<<"Enter 1st: "; cin>>a;
+ cout<<"Enter 2nd: "; cin>>b;
+ if(strlen(a)!=strlen(b)){ cout<<"Not Anagram"; return 0; }
+ sort(a,a+strlen(a));
+ sort(b,b+strlen(b));
+ cout<<(strcmp(a,b)==0?"Anagram":"Not Anagram");
+ return 0;
+}
+
+/*
+Output:
+Enter 1st: listen
+Enter 2nd: silent
+Anagram
+*/
+
+cout<<"\n--------------------------------------------\n";
